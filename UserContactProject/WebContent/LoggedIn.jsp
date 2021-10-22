@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,15 +17,15 @@
 			<div id = "content">
 				<div id = "nav">
 					<ul class = "nav_links">
-						<li><a href = "Login.jsp">Login</a></li>
-						<li><a href = "Register.jsp">Create an Account</a></li>
+						<li><a href = "index.html">Home</a></li>
+						<li><a href = "Logout.html">Login</a></li>
 					</ul>
 				</div>
 				
 				<div id = "main">
-					<p>Welcome to the user contact database! This web application stores contact information that can easily be accessed!</p>	
+					<p>Logged in as </p><%=session.getAttribute("userName") %>
+
 				</div>
-				
 			</div>
 		</div>
 	</body>
