@@ -18,7 +18,6 @@
 				<div id = "nav">
 					<ul class = "nav_links">
 						<li><a href = "index.html">Home</a></li>
-						<li><a href = "Login.html">Login</a></li>
 					</ul>
 				</div>
 				

@@ -17,8 +17,9 @@
 			<div id = "content">
 				<div id = "nav">
 					<ul class = "nav_links">
-						<li><a href = "index.html">Home</a></li>
-						<li><a href = "Logout.html">Login</a></li>
+						<li><a href = "addContact.jsp">Create Contact</a></li>
+						<li><a href = "passForm.jsp">Change Password</a></li>
+						<li><a href = "LoggedOut.jsp">Logout</a></li>
 					</ul>
 				</div>
 				

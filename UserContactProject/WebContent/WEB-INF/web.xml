@@ -8,6 +8,10 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>Login</servlet-class>
     </servlet>
+        <servlet>
+        <servlet-name>ChangePassword</servlet-name>
+        <servlet-class>ChangePassword</servlet-class>
+    </servlet>
   
   <display-name>UserContactProject</display-name>
   <welcome-file-list>
