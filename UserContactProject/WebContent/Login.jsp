@@ -23,12 +23,14 @@
 				
 				<div id = "main">
 					<%
+						//Redirects if you're already signed in.
 						if (session.getAttribute("userName") != null) {
 							response.sendRedirect("LoggedIn.jsp");
 						}
 					%>
 
 					<%
+						//Checks if you inputted correct credentials.
 						if (session.getAttribute("failedAttempt") != null) {
 							session.setAttribute("failedAttempt", null);
 					%>

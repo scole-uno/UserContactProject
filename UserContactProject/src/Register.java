@@ -78,7 +78,7 @@ public class Register extends HttpServlet {
 		try {
 			DBConnection.getDBConnection();
 			connection = DBConnection.connection;
-			ps = connection.prepareStatement("SELECT * FROM USERS WHERE username=?");
+			ps = connection.prepareStatement("SELECT * FROM USERS WHERE username=? ");
 			ps.setString(1, userName);
 			rset = ps.executeQuery();
 			

@@ -18,6 +18,7 @@
 				<div id = "nav">
 					<ul class = "nav_links">
 						<li><a href = "addContact.jsp">Create Contact</a></li>
+						<li><a href = "searchContact.jsp">Search Contact</a></li>
 						<li><a href = "passForm.jsp">Change Password</a></li>
 						<li><a href = "LoggedOut.jsp">Logout</a></li>
 					</ul>

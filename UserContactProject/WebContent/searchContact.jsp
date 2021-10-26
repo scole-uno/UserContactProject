@@ -19,22 +19,15 @@
 					<ul class = "nav_links">
 						<li><a href = "LoggedIn.jsp">Home</a></li>
 						<li><a href = "addContact.jsp">Create Contact</a></li>
-						<li><a href = "searchContact.jsp">Search Contact</a></li>
+						<li><a href = "passForm.jsp">Change Password</a></li>
 						<li><a href = "LoggedOut.jsp">Logout</a></li>
 					</ul>
 				</div>
 				
 				<div id = "main">
-				<%
-                        //Shows a message if the passwords didn't match.
-                        if(session.getAttribute("noMatch") != null) {
-                    %>
-                            <p>The inputted passwords did not match.</p>
-                    <%
-                            session.setAttribute("noMatch", null);
-                        }
-                    %>
-						<% 
+
+		<% 
+		//Redirects if you're not signed in.
 		if(session.getAttribute("userName") == null) {
 			response.sendRedirect("Login.jsp");
 		}
@@ -42,14 +35,21 @@
 			%>
 			
 			<table>
-                            <form action="ChangePassword" method="POST">
-                            <tr><td>New Password: </td>
-                                <td><input type="password" name="newPassword" size="10"></td>
+                            <form action="SearchContact" method="POST">
+                            
+                            <tr>
+                                <td>Search By:</td>
+                                <td><select name="criteria" id="criteria">
+                                <option value="name">Name</option>
+                                <option value="city">City</option>
+                                <option value="state">State</option>
+                                <option value="company">Company</option>
+                            </select>
+                                </td>
+                            </tr><tr>
+                                <td><input type="text" name="keyword" size="10"></td>
                             </tr>
-                            <tr><td>Confirm New Password: </td>
-                                <td><input type="password" name="confNewPassword" size="10"></td>
-                            </tr>
-                            <tr><td><input type="submit" value="Change"></td></tr>
+                            <tr><td><input type="submit" value="Search"></td></tr>
 
                             </form>
                     </table>

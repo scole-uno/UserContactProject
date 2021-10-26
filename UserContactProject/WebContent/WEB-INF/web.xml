@@ -12,6 +12,11 @@
         <servlet-name>ChangePassword</servlet-name>
         <servlet-class>ChangePassword</servlet-class>
     </servlet>
+        <servlet>
+        <servlet-name>SearchContact</servlet-name>
+        <servlet-class>SearchContact</servlet-class>
+    </servlet>
+  
   
   <display-name>UserContactProject</display-name>
   <welcome-file-list>

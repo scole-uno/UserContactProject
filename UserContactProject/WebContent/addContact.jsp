@@ -17,7 +17,8 @@
 			<div id = "content">
 				<div id = "nav">
 					<ul class = "nav_links">
-						<li><a href = "index.html">Home</a></li>
+						<li><a href = "LoggedIn.jsp">Home</a></li>
+						<li><a href = "searchContact.jsp">Search Contact</a></li>
 						<li><a href = "passForm.jsp">Change Password</a></li>
 						<li><a href = "LoggedOut.jsp">Logout</a></li>
 					</ul>
@@ -31,6 +32,7 @@
 					}
 					%>
 					<%
+						//Checks if all fields weren't filled.
 						if (session.getAttribute("missingInfo") != null) {
 							session.setAttribute("missingInfo", null);
 					%>
@@ -39,7 +41,8 @@
 						}
 					%>
 					<%
-						if (session.getAttribute(" contactLong") != null) {
+						//Checks if the contact name was too long.
+						if (session.getAttribute("contactLong") != null) {
 							session.setAttribute("contactLong", null);
 					%>
 							<p>Contact name is too long.(25 characters max)</p>
@@ -47,6 +50,7 @@
 						}
 					%>
 					<%
+						//Checks if the phone number is too long.
 						if (session.getAttribute("phoneLong") != null) {
 							session.setAttribute("phoneLong", null);
 					%>
@@ -55,6 +59,7 @@
 						}
 					%>					
 					<%
+					//Checks if the address is too long.
 						if (session.getAttribute("addressLong") != null) {
 							session.setAttribute("addressLong", null);
 					%>
@@ -63,6 +68,7 @@
 						}
 					%>
 					<%
+						//Checks if the city name is too long.
 						if (session.getAttribute("cityLong") != null) {
 							session.setAttribute("cityLong", null);
 					%>
@@ -71,6 +77,7 @@
 						}
 					%>
 					<%
+					//Checks if the state name is too long.
 						if (session.getAttribute("stateLong") != null) {
 							session.setAttribute("stateLong", null);
 					%>
@@ -79,6 +86,7 @@
 						}
 					%>
 					<%
+					//Checks if the company name is too long.
 						if (session.getAttribute("companyLong") != null) {
 							session.setAttribute("companyLong", null);
 					%>
@@ -87,6 +95,7 @@
 						}
 					%>
 					<%
+						//Checks if the contact was added
 						if (session.getAttribute("contactAdded") != null) {
 							session.setAttribute("contactAdded", null);
 					%>
