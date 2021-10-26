@@ -60,12 +60,14 @@ public class Login extends HttpServlet {
 						
 					response.sendRedirect("LoggedIn.jsp");
 				}
+				else {
+					session.setAttribute("failedAttempt", "true");
+					System.out.println("SHOULD HAVE REDIRECTED");
+					response.sendRedirect("Login.jsp");
+				}
 
 			}
-			else {
-				session.setAttribute("failedAttempt", "true");
-				response.sendRedirect("Login.jsp");
-			}
+			
 			
 			
 			
