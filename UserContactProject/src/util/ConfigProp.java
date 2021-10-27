@@ -10,7 +10,7 @@ public class ConfigProp {
    static String _PROP_FILENAME_WIN_LOCAL = "C:\\Users\\saeba\\git\\UserContactProjectRepo\\UserContactProject\\WebContent\\config.properties";
    static String _PROP_FILENAME_OSX_LOCAL = "/YOUR_PATH/webproject/WebContent/config.properties";
    // * Remote server path
-   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/webproject-ex-0914-Cole/config.properties";
+   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/UserContactProject/config.properties";
    static Properties prop = new Properties();
 
    public static void loadProperty() throws Exception {
