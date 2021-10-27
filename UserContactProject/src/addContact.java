@@ -50,42 +50,44 @@ public class addContact extends HttpServlet {
 		
 		
 		//Checks if something wasn't included in the registration.
-		if (contactName.equals("") || phone.equals("") || address.equals("") || city.equals("") 
-				|| state.equals("") || company.equals("")) {
+		if (contactName.isEmpty() || phone.isEmpty() || address.isEmpty() || city.isEmpty()
+				|| state.isEmpty() || company.isEmpty()) {
 			session.setAttribute("missingInfo", "true");
 			response.sendRedirect("addContact.jsp");
 		}
 		//Checks if the username is too long.
-		if (contactName.length() > 25) {
+		else if (contactName.length() > 25) {
 			session.setAttribute("contactLong", "true");
 			response.sendRedirect("addContact.jsp");
 		}
 		//Checks if the password is too long.
-		if (phone.length() > 20) {
+		else if (phone.length() > 20) {
 			session.setAttribute("phoneLong", "true");
 			response.sendRedirect("addContact.jsp");
 		}
 		//Checks if the first name is too long.
-		if (address.length() > 50) {
+		else if (address.length() > 50) {
 			session.setAttribute("addressLong", "true");
 			response.sendRedirect("addContact.jsp");
 		}
 		//Checks if the last name is too long.
-		if (city.length() > 20) {
+		else if (city.length() > 20) {
 			session.setAttribute("cityLong", "true");
 			response.sendRedirect("addContact.jsp");
 		}
 		//Checks if the last name is too long.
-		if (state.length() > 15) {
+		else if (state.length() > 15) {
 			session.setAttribute("stateLong", "true");
 			response.sendRedirect("addContact.jsp");
 		}
 		//Checks if the last name is too long.
-		if (company.length() > 20) {
+		else if (company.length() > 20) {
 			session.setAttribute("companyLong", "true");
 			response.sendRedirect("addContact.jsp");
 		}
-		try {
+		else {
+			try {
+			
 			DBConnection.getDBConnection();
 			connection = DBConnection.connection;
 
@@ -128,6 +130,7 @@ public class addContact extends HttpServlet {
 		             se.printStackTrace();
 		          }
 			}
+		}
 	}
 
 	/**

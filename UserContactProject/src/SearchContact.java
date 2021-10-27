@@ -38,6 +38,7 @@ public class SearchContact extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
+		//Sets up the HTML page.
 		out.println("<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; "
 				+ "charset=UTF-8\">\n<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">\n<title>UserContactDB</title>"
 				+ "\n</head>\n<body>\n<div id = \"container\">\n<div id = \"header\">\n<h1>User Contact DB</h1>	\n</div>"
@@ -46,6 +47,7 @@ public class SearchContact extends HttpServlet {
 				+ "\n<li><a href = \"passForm.jsp\">Change Password</a></li>\n<li><a href = \"LoggedOut.jsp\">Logout</a></li>"
 				+ "\n</ul>\n</div>\n<div id = \"main\">");
 		
+		//Needed for the DB.
 		ResultSet rset = null;
 		Connection connection = null;
 		PreparedStatement ps = null;
@@ -57,11 +59,15 @@ public class SearchContact extends HttpServlet {
 		try {
 			DBConnection.getDBConnection();
 			connection = DBConnection.connection;
+			
+			//Checks if no keyword is input, if none is found then returns everything.
 			if (keyword.isEmpty()) {
+				//Grabs all contacts with the user associated.
 				ps = connection.prepareStatement("SELECT * FROM CONTACTS WHERE user=?;");
 				ps.setString(1, (String) session.getAttribute("userName"));
 			}
 			else {
+				//Finds rows that match criteria, keyword, and associated user.
 				ps = connection.prepareStatement("SELECT * FROM CONTACTS WHERE user=? AND " + criteria + " LIKE ?;");
 				ps.setString(1, (String) session.getAttribute("userName"));
 				keyword = "%" + keyword + "%";
@@ -73,6 +79,7 @@ public class SearchContact extends HttpServlet {
 			rset = ps.executeQuery();
 			out.println("<ul>");
 			while (rset.next()) {
+				//Prints a contact.
 				out.println("<li><p style=\"font-size:10px\">Name: " + rset.getString("name") + ",\tPhone: " + rset.getString("phone") + ",\tAddress: " + rset.getString("address")
 				+ ",\tCity: " + rset.getString("city") + ",\tState: " + rset.getString("state") + ",\tCompany: " + rset.getString("company") + "</p></li>");
 			}

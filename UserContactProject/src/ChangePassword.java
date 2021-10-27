@@ -46,8 +46,9 @@ public class ChangePassword extends HttpServlet {
 			
 			
 			
-			
+				//Makes sure the password is the one they wanted.
 				if (request.getParameter("newPassword").equals(request.getParameter("confNewPassword"))) {
+					//Replace the password from old to new.
 					ps = connection.prepareStatement("UPDATE USERS SET password = ? WHERE username = ?");
 					ps.setString(1, request.getParameter("newPassword"));
 					ps.setString(2, (String) session.getAttribute("userName"));

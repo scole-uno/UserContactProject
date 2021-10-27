@@ -38,6 +38,7 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("password");
 		HttpSession session = request.getSession();
 		
+		//Setup things for the DB
 		Connection connection = null;
 		PreparedStatement ps = null;
 		ResultSet rset = null;
@@ -46,12 +47,15 @@ public class Login extends HttpServlet {
 			DBConnection.getDBConnection();
 			connection = DBConnection.connection;
 			
+			//Finds the user with the username.
 			ps = connection.prepareStatement("SELECT * FROM USERS WHERE username=?");
 			ps.setString(1, userName);
 			
 			rset = ps.executeQuery();
 			if (rset.next()) {
+				//Checks if credentials match.
 				if (rset.getString("username").equals(userName) && rset.getString("password").equals(password)) {
+					//"Signs" the user into the session.
 					session.setAttribute("userName", userName);
 					session.setAttribute("password", password);
 					session.setAttribute("fName", rset.getString("fName"));
@@ -62,7 +66,6 @@ public class Login extends HttpServlet {
 				}
 				else {
 					session.setAttribute("failedAttempt", "true");
-					System.out.println("SHOULD HAVE REDIRECTED");
 					response.sendRedirect("Login.jsp");
 				}
 
